@@ -5,6 +5,11 @@ Created on Sat Sep 21 21:47:42 2024
 @author: emiray
 """
 import streamlit as st
+st.set_page_config(
+    page_title="Emiray DEMOS",
+    page_icon="🌏",
+    layout="wide",
+)
 hide_streamlit_style = """
 <style>
 #MainMenu {visibility: hidden;}
