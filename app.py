@@ -24,7 +24,6 @@ import folium
 from folium.plugins import MousePosition
 import geopandas as gpd
 import rasterio
-from streamlit_folium import st_folium
 from streamlit_folium import folium_static
 # Başlık
 st.title("Georeferencing Demo")
@@ -39,7 +38,7 @@ google_tiles = folium.TileLayer(
     name='Google Satellite Basemap'  # Katmana isim veriyoruz
 ).add_to(m)
 # GeoJSON dosyasını yükleyelim
-geojson_file = "C:/Users\emiray\Documents\point.geojson"  # Buraya kendi geojson dosyanızın yolunu ekleyin
+geojson_file = "point.geojson"  # Buraya kendi geojson dosyanızın yolunu ekleyin
 gdf = gpd.read_file(geojson_file)
 
 # GeoJSON katmanını haritaya ekleyelim
@@ -65,7 +64,7 @@ with st.spinner('Loading points'):
 
 with st.spinner('Loading georeferenced raster'):
 # TIFF dosyasını ekleyelim
-    tiff_file = "C:/Users/emiray/Downloads/Byzantine_Constantinople-en_modified.tif"  # Buraya kendi TIFF dosyanızın yolunu ekleyin
+    tiff_file = "Byzantine_Constantinople-en_modified.tif"  # Buraya kendi TIFF dosyanızın yolunu ekleyin
     with rasterio.open(tiff_file) as src:
         
         band = src.read(1)
